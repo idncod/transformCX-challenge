@@ -113,7 +113,7 @@ function MainSection() {
                     justifyContent: 'center',
                     marginTop: '20px',
                     textDecoration: 'none',
-                    color: "gray",
+                    color: "#36454F",
                 }}
             >
                 <span style={{ fontSize: '18px' }}>Developed by Viola Lykova</span>
