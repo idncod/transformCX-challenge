@@ -45,13 +45,13 @@ function MainSection() {
     useEffect(() => {
         if (language !== prevLanguage) {
             controls.start({
-                opacity: 1,
-                width: '100%',
+                opacity: 0,
+                y: 10,
                 transition: { duration: 0.3 },
             }).then(() => {
                 controls.start({
-                    opacity: 0,
-                    width: 0,
+                    opacity: 1,
+                    y: 0,
                     transition: { duration: 0.3 },
                 });
             });
@@ -62,63 +62,66 @@ function MainSection() {
 
     return (
         <ClientOnly>
-        <div style={{ position: 'relative', width: '100%', maxWidth: '600px', margin: '0 auto' }}>
-            <p
-                id="favoriteLanguage"
-                style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '50px', position: 'relative', display: 'inline-block' }}
-            >
-                Favorite programming language: {language}
-                <motion.div
-                    style={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: 0,
-                        height: '4px',
-                        backgroundColor: '#0070f3',
+            <div style={{position: 'relative', width: '100%', maxWidth: '600px', margin: '0 auto'}}>
+                <div style={{marginBottom: '20px'}}>
+                    <p
+                        id="favoriteLanguage"
+                        style={{fontSize: '24px', fontWeight: 'bold'}}
+                    >
+                        Favorite programming language:
+                    </p>
+                    <motion.div
+                        style={{
+                            fontSize: '24px',
+                            fontWeight: 'bold',
+                            display: 'inline-block',
+                            opacity: 1,
+                        }}
+                        animate={controls}
+                    >
+                        {language}
+                    </motion.div>
+                </div>
+                <motion.button
+                    id="changeFavorite"
+                    onClick={toggleLanguage}
+                    whileHover={{
+                        scale: 1.05,
+                        boxShadow: '0 4px 10px rgba(0, 118, 255, 0.5)',
                     }}
-                    animate={controls}
-                />
-            </p>
-            <motion.button
-                id="changeFavorite"
-                onClick={toggleLanguage}
-                whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 4px 10px rgba(0, 118, 255, 0.5)',
-                }}
-                whileTap={{ scale: 0.95 }}
-                style={{
-                    padding: '10px 20px',
-                    fontSize: '18px',
-                    cursor: 'pointer',
-                    backgroundColor: '#0070f3',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px',
-                    outline: 'none',
-                    position: 'relative',
-                    transition: 'box-shadow 0.3s ease',
-                    boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
-                }}
-            >
-                Toggle language
-            </motion.button>
-            <a
-                href="https://idncod.netlify.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: '20px',
-                    textDecoration: 'none',
-                    color: "#36454F",
-                }}
-            >
-                <span style={{ fontSize: '18px', paddingTop: '50px' }}>Developed by Viola Lykova</span>
-            </a>
-        </div>
-    </ClientOnly>
+                    whileTap={{scale: 0.95}}
+                    style={{
+                        padding: '10px 20px',
+                        fontSize: '18px',
+                        cursor: 'pointer',
+                        backgroundColor: '#0070f3',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '5px',
+                        outline: 'none',
+                        position: 'relative',
+                        transition: 'box-shadow 0.3s ease',
+                        boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+                    }}
+                >
+                    Toggle language
+                </motion.button>
+                <a
+                    href="https://idncod.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginTop: '20px',
+                        textDecoration: 'none',
+                        color: "#36454F",
+                    }}
+                >
+                    <span style={{fontSize: '18px', paddingTop: '50px'}}>Developed by Viola Lykova</span>
+                </a>
+            </div>
+        </ClientOnly>
     );
 }
