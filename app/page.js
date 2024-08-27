@@ -7,6 +7,10 @@ import ClientOnly from "@/app/ClientOnly";
 const LanguageContext = createContext();
 
 const languages = ['JavaScript', 'Python'];
+const bgColor = {
+    JavaScript: '#FFEB3B',
+    Python: '#4CAF50',
+};
 
 export default function Page() {
     const [languageState, setLanguageState] = useState(0);
@@ -17,7 +21,7 @@ export default function Page() {
 
     return (
         <LanguageContext.Provider value={{ language: languages[languageState], toggleLanguage }}>
-            <div style={{ textAlign: 'center', marginTop: '50px' }}>
+            <div style={{ textAlign: 'center', marginTop: '50px', minHeight: '100vh', backgroundColor: bgColor[languages[languageState]], transition: 'background-color 0.5s ease', }}>
                 <MainSection />
             </div>
         </LanguageContext.Provider>
@@ -69,7 +73,9 @@ function MainSection() {
             <motion.button
                 id="changeFavorite"
                 onClick={toggleLanguage}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05,
+                    boxShadow: '0 4px 10px rgba(0, 118, 255, 0.5)',
+                }}
                 whileTap={{ scale: 0.95 }}
                 style={{
                     padding: '10px 20px',
@@ -83,9 +89,6 @@ function MainSection() {
                     position: 'relative',
                     transition: 'box-shadow 0.3s ease',
                     boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
-                }}
-                whileHover={{
-                    boxShadow: '0 4px 10px rgba(0, 118, 255, 0.5)',
                 }}
             >
                 Toggle language
