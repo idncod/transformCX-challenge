@@ -27,7 +27,6 @@ export default function Page() {
                 textAlign: 'center',
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: '50px',
                 minHeight: '100vh',
                 backgroundColor: bgColor[languages[languageState]],
                 transition: 'background-color 0.5s ease',
@@ -66,7 +65,7 @@ function MainSection() {
         <div style={{ position: 'relative', width: '100%', maxWidth: '600px', margin: '0 auto' }}>
             <p
                 id="favoriteLanguage"
-                style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', position: 'relative', display: 'inline-block' }}
+                style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '50px', position: 'relative', display: 'inline-block' }}
             >
                 Favorite programming language: {language}
                 <motion.div
@@ -83,7 +82,8 @@ function MainSection() {
             <motion.button
                 id="changeFavorite"
                 onClick={toggleLanguage}
-                whileHover={{ scale: 1.05,
+                whileHover={{
+                    scale: 1.05,
                     boxShadow: '0 4px 10px rgba(0, 118, 255, 0.5)',
                 }}
                 whileTap={{ scale: 0.95 }}
@@ -116,7 +116,7 @@ function MainSection() {
                     color: "#36454F",
                 }}
             >
-                <span style={{ fontSize: '18px' }}>Developed by Viola Lykova</span>
+                <span style={{ fontSize: '18px', paddingTop: '50px' }}>Developed by Viola Lykova</span>
             </a>
         </div>
     </ClientOnly>
