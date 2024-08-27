@@ -8,8 +8,8 @@ const LanguageContext = createContext();
 
 const languages = ['JavaScript', 'Python'];
 const bgColor = {
-    JavaScript: '#FFEB3B',
-    Python: '#4CAF50',
+    JavaScript: '#FDFD97',
+    Python: '#D2FDBB',
 };
 
 export default function Page() {
@@ -63,7 +63,7 @@ function MainSection() {
 
     return (
         <ClientOnly>
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '600px', margin: '0 auto' }}>
             <p
                 id="favoriteLanguage"
                 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', position: 'relative', display: 'inline-block' }}
