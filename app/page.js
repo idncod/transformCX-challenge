@@ -21,7 +21,17 @@ export default function Page() {
 
     return (
         <LanguageContext.Provider value={{ language: languages[languageState], toggleLanguage }}>
-            <div style={{ textAlign: 'center', marginTop: '50px', minHeight: '100vh', backgroundColor: bgColor[languages[languageState]], transition: 'background-color 0.5s ease', }}>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                textAlign: 'center',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '50px',
+                minHeight: '100vh',
+                backgroundColor: bgColor[languages[languageState]],
+                transition: 'background-color 0.5s ease',
+            }}>
                 <MainSection />
             </div>
         </LanguageContext.Provider>
